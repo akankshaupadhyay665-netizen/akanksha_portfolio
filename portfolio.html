@@ -1,134 +1,517 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akanksha Upadhyay - Portfolio</title>
+
+    <title>Akanksha Upadhyay | Portfolio</title>
+
+    <meta name="description"
+          content="Official portfolio of Akanksha Upadhyay, B.Tech CSE student specializing in Artificial Intelligence and Machine Learning.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #101c3a;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #93c5fd;
+        }
+
+        .hero {
+            min-height: 440px;
+            padding: 70px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            background: linear-gradient(120deg, #eef4ff, #ffffff);
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero-content .intro {
+            color: #2563eb;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: #101c3a;
+            line-height: 1.25;
+            margin: 12px 0;
+        }
+
+        .hero h3 {
+            color: #2563eb;
+            font-size: 19px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            max-width: 620px;
+            color: #526078;
+            margin-bottom: 25px;
+        }
+
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 8px 30px #101c3a20;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px 8px 5px 0;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #173e9b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            color: white;
+        }
+
+        section {
+            padding: 55px 8%;
+            scroll-margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #101c3a;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 32px;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px #101c3a0a;
+        }
+
+        .about-box p {
+            color: #526078;
+        }
+
+        .education-grid,
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 20px #101c3a08;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px #101c3a12;
+        }
+
+        .card h3 {
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .percentage {
+            color: #2563eb !important;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .results {
+            background: #edf2fa;
+        }
+
+        .result-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .result-card .btn {
+            margin-top: auto;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            background: white;
+            color: #1e40af;
+            border: 1px solid #dbeafe;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-weight: bold;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+            color: #526078;
+        }
+
+        .contact a {
+            color: #2563eb;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            background: #101c3a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 22px 8%;
+            font-size: 14px;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+                padding: 50px 6%;
+            }
+
+            .profile-image {
+                width: 175px;
+                height: 175px;
+            }
+
+            section {
+                padding: 42px 6%;
+            }
+        }
+    </style>
 </head>
-<body bgcolor="lightblue">
-                <h1 style="color: black; background-color: lightgray; padding: 10px;">AKANKSHA UPADHYAY</h1>
-                <p style="font-size: 16px; margin: 0;">B.Tech Computer Science and Engineering (AI & ML)</p>
-        
-        
- <table>
-        
-        <tr>
-            <td align="center" width="200" valign="top" style="padding-top: 30px;">
-                <!-- Passport Size Photo -->
-                <img src="image.jpeg" alt="Passport Size Photo" width="120" height="150" style="border: 2px solid navy;">
-            </td>
-            <td valign="top" style="padding-top: 20px;">
-                <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">About Me</h2>
+
+<body>
+
+    
+    <header>
+        <h2>Akanksha Upadhyay</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#results">Academic Records</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    
+    <main>
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <span class="intro">WELCOME TO MY PORTFOLIO</span>
+
+                <h1>Hi, I'm Akanksha Upadhyay</h1>
+
+                <h3>B.Tech CSE | AI & Machine Learning</h3>
+
                 <p>
-                    Hello! My name is Akanksha Upadhyay. I am a B.Tech student in Computer Science and Engineering 
-                    with a specialization in Artificial Intelligence and Machine Learning.
+                    I am a Computer Science and Engineering student specializing
+                    in Artificial Intelligence and Machine Learning at Shri Ram
+                    Swaroop Memorial University. I am passionate about
+                    technology, programming, and web development, and I aim
+                    to develop my skills through continuous learning and
+                    practical experience.
                 </p>
+
+                <a href="#about" class="btn">About Me</a>
+                <a href="#results" class="btn btn-outline">
+                    View Academic Records
+                </a>
+            </div>
+
+            <img src="image.jpeg"
+                 alt="Akanksha Upadhyay"
+                 class="profile-image">
+        </section>
+
+        
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">A little about my academic journey</p>
+
+            <div class="about-box">
                 <p>
-                    I am deeply interested in Web Development, Artificial Intelligence, Machine Learning, and App Development.
+                    I am currently pursuing my Bachelor of Technology in
+                    Computer Science and Engineering with a specialization
+                    in Artificial Intelligence and Machine Learning at
+                    Shri Ram Swaroop Memorial University (SRMU).
                 </p>
-            </td>
-        </tr>
 
-        
-        <tr>
-            <td colspan="2">
-                <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">Education Qualifications</h2>
-                <table width="100%" border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; border-color: lightgray; text-align: left;">
-                    <tr bgcolor="whitesmoke">
-                        <th>Qualification</th>
-                        <th>Institution</th>
-                        <th>Score / CGPA</th>
-                        <th>Marksheet / Result</th>
-                    </tr>
-                    <tr>
-                        <td>Class 10</td>
-                        <td>Canossa School</td>
-                        <td>92%</td>
-                        <td><a href="class10_marksheet.jpeg" target="_blank">View Marksheet</a></td>
-                    </tr>
-                    <tr>
-                        <td>Class 12</td>
-                        <td>Canossa School</td>
-                        <td>87%</td>
-                        <td><a href="class12_marksheet.jpeg" target="_blank">View Marksheet</a></td>
-                    </tr>
-                    <tr>
-                        <td>B.Tech CSE (AI/ML)</td>
-                        <td>SRMU (1st Year - 2nd Sem)</td>
-                        <td>CGPA: 8.7</td>
-                        <td><a href="first_year_result.jpeg" target="_blank">View Result</a></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+                <br>
 
-
-        <tr>
-            <td colspan="2">
-                <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">My Projects</h2>
-                <ul>
-                    <li><a href="index.html" target="_blank">Featured Project</a></li>
-                </ul>
-            </td>
-        </tr>
-
-        
-        <tr>
-            <td colspan="2">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td width="50%" valign="top">
-                            <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">My Skills</h2>
-                            <ul>
-                                <li>HTML</li>
-                                <li>Python</li>
-                                <li>Basic SQL</li>
-                                <li>Problem Solving</li>
-                            </ul>
-                        </td>
-                        <td width="50%" valign="top">
-                            <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">My Interests</h2>
-                            <ul>
-                                <li>Web Development</li>
-                                <li>Artificial Intelligence</li>
-                                <li>Machine Learning</li>
-                                <li>App Development</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        
-        <tr>
-            <td colspan="2">
-                <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">My Goal</h2>
                 <p>
-                    My goal is to build my skills in AI/ML and Web Development and create useful, real-world projects.
+                    My academic journey has helped me develop an interest
+                    in programming, logical thinking, and emerging
+                    technologies. I am learning Python, Java, HTML, and CSS
+                    while strengthening my understanding of computer science.
+                    I look forward to applying my knowledge to meaningful
+                    projects and professional opportunities.
                 </p>
-            </td>
-        </tr>
+            </div>
+        </section>
+
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">
+                My academic qualifications and achievements
+            </p>
+
+            <div class="education-grid">
+
+                <div class="card">
+                    <span class="badge">Currently Pursuing</span>
+                    <h3>Bachelor of Technology</h3>
+                    <p>Computer Science and Engineering</p>
+                    <p>Specialization: AI & Machine Learning</p>
+                    <p>Shri Ram Swaroop Memorial University (SRMU)</p>
+                </div>
+
+                <div class="card">
+                    <span class="badge">CBSE Board</span>
+                    <h3>Class XII – Senior Secondary</h3>
+                    <p>Canossa School</p>
+                    <p>Passing Year: 2025</p>
+                    <p class="percentage">87%</p>
+                    <p>Board: Central Board of Secondary Education</p>
+                </div>
+
+                <div class="card">
+                    <span class="badge">CBSE Board</span>
+                    <h3>Class X – Secondary</h3>
+                    <p>Canossa School</p>
+                    <p>Passing Year: 2023</p>
+                    <p class="percentage">92%</p>
+                    <p>Board: Central Board of Secondary Education</p>
+                </div>
+
+            </div>
+        </section>
 
         
-        <tr>
-            <td colspan="2">
-                <h2 style="color: navy; border-bottom: 2px solid lightgray; padding-bottom: 5px;">Contact Me</h2>
-                <p>
-                    <strong>Email:</strong> <a href="mailto:akankshaupadhyay665@gmail.com">akankshaupadhyay665@gmail.com</a><br>
-                    <strong>Location:</strong> Lucknow, Uttar Pradesh
-                </p>
-            </td>
-        </tr>
+        <section class="results" id="results">
+            <h2 class="section-title">Academic Records</h2>
 
+            <p class="section-subtitle">
+                View my school marksheets and university result
+            </p>
+
+            <div class="result-grid">
+
+                <div class="card result-card">
+                    <h3>Class X Marksheet</h3>
+                    <p>CBSE Board | 2023</p>
+                    <p>Percentage: 92%</p>
+
+                    <a href="class10_marksheet.jpeg"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn">
+                        View Marksheet
+                    </a>
+                </div>
+
+                <div class="card result-card">
+                    <h3>Class XII Marksheet</h3>
+                    <p>CBSE Board | 2025</p>
+                    <p>Percentage: 87%</p>
+
+                    <a href="class12_marksheet.jpeg"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn">
+                        View Marksheet
+                    </a>
+                </div>
+
+                <div class="card result-card">
+                    <h3>First-Year University Result</h3>
+                    <p>B.Tech CSE (AI/ML)</p>
+                    <p>Shri Ram Swaroop Memorial University</p>
+
+                    <a href="first_year_result.jpeg"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn">
+                        View Result
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2 class="section-title">Skills & Interests</h2>
+            <p class="section-subtitle">
+                Technologies and areas I am learning
+            </p>
+
+            <div class="skills-container">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">Python</span>
+                <span class="skill">Java</span>
+                <span class="skill">Artificial Intelligence</span>
+                <span class="skill">Machine Learning</span>
+                <span class="skill">Web Development</span>
+                <span class="skill">Problem Solving</span>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">Contact Me</h2>
+
+            <p>
+                I welcome opportunities to learn, collaborate,
+                and connect with fellow technology enthusiasts.
+            </p>
+
+            <p>
+                Email:
+                <a href="mailto:akankshaupadhyay665@gmail.com">
+                    akankshaupadhyay665@gmail.com
+                </a>
+            </p>
+
+            <p>
+                GitHub:
+                <a href="https://github.com/akankshaupadhyay665-netizen"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visit My GitHub Profile
+                </a>
+            </p>
+        </section>
+    </main>
+
+
+    <footer>
         
-        <tr>
-            <td align="center" colspan="2" style="border-top: 1px solid lightgray; padding-top: 20px; color: blue;">
-                <p>Thank you for visiting my portfolio!</p>
-            </td>
-        </tr>
-
-    </table>
+        <p>Thank you for visiting my portfolio!</p>
+    </footer>
 
 </body>
 </html>
